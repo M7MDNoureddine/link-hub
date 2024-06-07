@@ -1,0 +1,84 @@
+Follow the step - create user & link table first then lastly lecturer_link_assignment table
+
+CREATE TABLE user (
+  user_id int(11) NOT NULL AUTO_INCREMENT,
+  email varchar(255) DEFAULT NULL,
+  password varchar(255) DEFAULT NULL,
+  user_type varchar(255) NOT NULL,
+  Department varchar(255) NOT NULL,
+  PRIMARY KEY (user_id)
+)
+
+INSERT INTO user(email,password,user_type, Department) VALUES
+('qayyim@utm,my','Q@yyim12345','lecturer','SECR'),
+('user1@utm.my','P@ssword123','admin','SECR'),
+('user2@utm.my','P@ssword234','lecturer','SECR'),
+('user3@utm.my','P@ssword345','admin','SECR'),
+('user4@utm.my','P@ssword456','lecturer','SECR'),
+('user5@utm.my','P@ssword567','admin','SECR'),
+('user6@utm.my','P@ssword678','lecturer','SECR'),
+('user7@utm.my','P@ssword789','admin','SECV'),
+('user8@utm.my','P@ssword890','lecturer','SECV'),
+('user9@utm.my','P@ssword901','admin','SECJ'),
+('mrazak@utm.my','Mrazak@999','admin','SECJ');
+
+
+CREATE TABLE link (
+  link_id int(11) NOT NULL AUTO_INCREMENT,
+  link_name text DEFAULT NULL,
+  link_category text DEFAULT NULL,
+  session_sem varchar(255) NOT NULL,
+  link_description text DEFAULT NULL,
+  link_url text DEFAULT NULL,
+  link_owner text DEFAULT NULL,
+  PRIMARY KEY (link_id)
+)
+
+INSERT INTO link (link_name, link_category, session_sem, link_description, link_url, link_owner) VALUES
+('Computational Mathematic','Course Files','21/22-1','Computational mathematics is the application of mathematical principles to solve problems using computers','https://www.example3.com/','user3@utm.my'),
+('Application Development','Course Coordination','22/23-2','Application development refers to the process of creating software to perform various tasks within a business ','https://www.example4.com/','mrazak@utm.my'),
+('Timetable','Teaching & Learning','23/24-1','ZIP file format employs lossless compression, maintaining exact file integrity during compression and decompression processes.','https://www.example5.com/','user9@utm.my'),
+('Student announcement','Teaching & Learning','22/23-1','H.264 video codec utilizes lossy compression, enabling high-quality video streaming with reduced file sizes for efficient delivery.','https://www.example6.com/','user5@utm.my'),
+('Cryptography','Course Coordination','22/23-1','WMA audio format achieves smaller file sizes without a significant loss in audio quality by embracing lossy compression methods.','https://www.example7.com/','user5@utm.my'),
+('Computer Security','Course Files','19/20-2','JPEG 2000 image format refines the balance between image quality and file size through the use of lossy compression techniques.','https://www.example8.com/','user7@utm.my'),
+('TIS','Course Assesment Report','21/22-1','The JPEG file format, commonly used for images, employs lossy compression to reduce file size, prioritizing efficient storage and transmission.','https://www.example9.com/','user7@utm.my'),
+('Quantum Computing','Research','20/21-1','A JPEG file, commonly used for images, emplys lossy compression, reducing file size ','https://www.example10.com/','user9@utm.my'),
+('DSA','Course Files','18/19-2','course file to be distributed to SECR lecturers','https://www.geeksforgeeks.org/data-structures/','user1@utm.my'),
+('Artificial intelligence','Research','20/21-1','file course of the subject','https://www.ibm.com/topics/artificial-intelligence','user1@utm.my'),
+('Mathematical modelling','Course Assesment Report','23/24-1','course assesment report for mathematical modelling','https://www.mathscareers.org.uk/what-is-mathematical-modelling/','user1@utm.my');
+
+
+CREATE TABLE lecturer_link_assignment (
+  assignment_id int(11) NOT NULL AUTO_INCREMENT,
+  link_id int(11) NOT NULL,
+  lecturer_id int(11) NOT NULL,
+  PRIMARY KEY (assignment_id),
+  UNIQUE KEY unique_constraint_name (link_id,lecturer_id),
+  KEY fk_name2 (lecturer_id),
+  CONSTRAINT fk_name1 FOREIGN KEY (link_id) REFERENCES link (link_id) ON DELETE CASCADE,
+  CONSTRAINT fk_name2 FOREIGN KEY (lecturer_id) REFERENCES user (user_id) ON DELETE CASCADE,
+  CONSTRAINT lecturer_link_assignment_ibfk_1 FOREIGN KEY (link_id) REFERENCES link (link_id),
+  CONSTRAINT lecturer_link_assignment_ibfk_2 FOREIGN KEY (lecturer_id) REFERENCES user (user_id)
+)
+
+
+
+
+
+//for the lecturer_link_assignment, check the user_id & link_id at user&link table first if you want to manuaaly insert at db
+//if the link_id start at 1 n user_id start at 1 also then you can use the command below
+INSERT INTO lecturer_link_assignment (link_id, lecturer_id) VALUES
+(1, 1),
+(1, 2),
+(1, 7),
+(1, 11),
+(2, 1),
+(2, 2),
+(2, 3),
+(3, 2),
+(4, 2),
+(5, 2),
+(8, 2);
+
+
+
