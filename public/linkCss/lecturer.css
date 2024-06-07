@@ -1,0 +1,398 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #292524;
+  color: #fafaf9;
+  font-family: "Sono", sans-serif;
+  padding: 10px 64px;
+  transition: all 1s;
+}
+
+/* MAIN LAYOUT */
+.container {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+#logout2 {
+  margin-bottom: 38px;
+  width: 124px;
+  border-radius: 5px;
+  margin-left: auto;
+  cursor: pointer;
+  text-align: center;
+  background-color: #1c1917;
+}
+#logout2:hover {
+  background-color: #44403c;
+}
+#logout2:active {
+  background-color: #57534e;
+}
+
+.header {
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.overlay2 {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #292524;
+  opacity: 0.92;
+}
+
+#successPopup2 {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 50px;
+  z-index: 1000;
+  background-color: #44403c;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  text-align: center;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 48px;
+}
+
+@media (max-width: 1200px) {
+  .main {
+    grid-template-columns: 100%;
+  }
+}
+@keyframes fadeInPop {
+  0% {
+    transform: scale(0.8);
+  }
+}
+/* ELEMENTS */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo img {
+  width: 68px;
+  height: 63px;
+}
+
+h1 {
+  font-size: 42px;
+  text-transform: uppercase;
+  font-family: "Coiny", "cursive";
+  line-height: 1;
+  margin-top: 6px;
+}
+#searchContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+#searchBar {
+  width: 336px;
+  text-align: center;
+  background-color: #57534e;
+  border-radius: 100px 32px 0px 0px;
+  border: none;
+  padding: 6px;
+  color: white;
+  font-family: "Sono", sans-serif;
+  animation: fadeInPop ease 1s;
+}
+#searchBar::placeholder {
+  color: #d6d3d1;
+  opacity: 1;
+  text-align: center;
+  font-family: "Sono", sans-serif;
+}
+
+.toggleContainer {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+.toggle {
+  font-size: 10px;
+  font-family: "Coiny", "cursive";
+}
+
+.dummy {
+  width: 216px;
+}
+
+.category {
+  margin-bottom: 16px;
+}
+
+.tableclass {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  animation: fadeInPop ease 1s;
+}
+.linktable {
+  border-collapse: collapse;
+
+  min-width: 400px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+table,
+th,
+td {
+  padding: 5px;
+}
+th {
+  font-size: 22px;
+  font-weight: lighter;
+  border-left: solid #a8a29e 4px;
+  border-top: solid #a8a29e 4px;
+  border-top: none;
+  font-family: "coiny", "cursive";
+}
+th span {
+  display: none;
+}
+th:hover {
+  background-color: #78716c;
+  cursor: pointer;
+}
+th:focus {
+  background-color: #78716c;
+}
+
+td {
+  font-size: 15px;
+  text-align: center;
+  vertical-align: middle;
+  border-left: solid #a8a29e 4px;
+  border-top: solid #a8a29e 4px;
+}
+td:first-child,
+th:first-child {
+  border-left: none;
+  width: 250px;
+}
+
+th:nth-child(2) {
+  width: 350px;
+}
+
+td:nth-child(2) {
+  text-align: left;
+  font-size: 13px;
+}
+
+th:nth-child(3) {
+  width: 275px;
+}
+
+th:nth-child(4) {
+  width: 150px;
+}
+th:nth-child(5) {
+  width: 88px;
+}
+th:nth-child(6) {
+  width: 290px;
+}
+
+th:nth-child(5):hover {
+  background-color: #292524;
+  cursor: auto;
+}
+
+@media (max-width: 1200px) {
+  .linktable {
+    width: auto;
+  }
+}
+
+.tag {
+  text-transform: uppercase;
+  font-size: 13px;
+  font-family: "Coiny", sans-serif;
+  padding-top: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 100px;
+}
+
+ul {
+  list-style: none;
+}
+
+.source:link,
+.source:visited {
+  color: #a8a29e;
+  text-decoration: none;
+  transition: 0.3s;
+  max-width: fit-content;
+  flex-grow: 1;
+}
+
+.source:hover,
+.source:active {
+  color: #3b82f6;
+}
+
+.btn {
+  border: none;
+  font-family: "Coiny", sans-serif;
+  line-height: 1;
+  text-transform: uppercase;
+  font-size: 17px;
+  padding: 16px 0 13px;
+  background-color: #4158d0;
+  background-image: linear-gradient(
+    43deg,
+    #4158d0 0%,
+    #c850c0 46%,
+    #ffcc70 100%
+  );
+
+  color: inherit;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: 0.3s;
+  animation: fadeInPop ease 1s;
+}
+
+.btn:hover {
+  transform: scale(110%) rotate(-2deg);
+}
+.btn:active {
+  transform: translateY(4px);
+}
+
+.btn-large {
+  font-size: 20px;
+  padding: 20px 32px 17px;
+}
+
+.btn-all-categories {
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.btn-category {
+  width: 100%;
+  background-image: none;
+  margin-bottom: 3px;
+}
+select {
+  margin: auto;
+  color: #fafaf9;
+  font-family: "Coiny", sans-serif;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #44403c;
+  border-radius: 100px;
+  background-color: #57534e;
+  animation: fadeInPop ease 1s;
+}
+
+/* 2. Style the dropdown options */
+select option {
+  background-color: #78716c;
+}
+
+/* 3. Add hover effect */
+select:hover {
+  background-color: #78716c;
+  border-color: white;
+  cursor: pointer;
+}
+
+/* 4. Add focus effect */
+select:focus {
+  border-color: white;
+}
+
+/*SLIDER*/
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 28px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(18px);
+  -ms-transform: translateX(18px);
+  transform: translateX(18px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 100px;
+}
+
+.slider.round:before {
+  border-radius: 100%;
+}
+
+@media (max-width: 1065px) {
+  body {
+    padding: 32px 48px;
+  }
+}

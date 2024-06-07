@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+  list-style: none;
+  font-family: sans-serif;
+}
+@keyframes fadeInPop {
+  0% {
+    transform: scale(0.9);
+  }
+}
+
+body {
+  background-image: url("../image/Background.jpg");
+  background-size: auto;
+}
+
+.wrapper {
+  display: flex;
+  max-width: 700px;
+  width: 100%;
+  height: 560px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.wrapper .left,
+.wrapper .right {
+  width: 50%;
+  height: 100%;
+  padding: 30px;
+  /* opacity: 0.7;*/
+}
+
+.wrapper .left {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.wrapper .left h3 {
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+  font-size: 46px;
+  line-height: 1.2;
+}
+
+.wrapper .left img {
+  display: block;
+  width: 300px;
+  height: 286px;
+  margin: 42px 0px 0px 0px;
+  border-color: white;
+}
+
+.wrapper .right {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.wrapper .right .tab ul {
+  text-align: center;
+}
+
+.wrapper .right .tab ul li {
+  display: inline-block;
+  margin: 5px;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: #494f57;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.wrapper .right .tab ul li.active {
+  border-bottom: 3px solid #494f57;
+}
+
+.wrapper .right .register,
+.wrapper .right .login {
+  margin-top: 20px;
+}
+
+.wrapper .right .input_box {
+  margin-bottom: 15px;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.wrapper .right .input_box .input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 0;
+  font-size: 12px;
+  background: #ecebeb;
+}
+
+.wrapper .right .register-btn {
+  margin-top: 20px;
+  background: #494f57;
+  padding: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #fff;
+  font-size: 15px;
+}
+.wrapper .right .login-btn:hover {
+  filter: brightness(1.15);
+}
+.wrapper .right .login-btn:active {
+  filter: brightness(1.25);
+}
+.wrapper .right .login-btn {
+  margin-top: 20px;
+  background-color: #494f57;
+  padding: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #fff;
+  font-size: 15px;
+}
+.wrapper .right .register-btn:hover {
+  filter: brightness(1.15);
+}
+.wrapper .right .register-btn:active {
+  filter: brightness(1.25);
+}
+.error_form {
+  top: 10px;
+  color: rgb(216, 15, 15);
+  font-size: 12px;
+  font-family: sans-serif;
+  text-align: center;
+}

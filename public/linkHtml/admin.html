@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Coiny&family=Sono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="../linkJs/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+   
+
+
+    <link href="../linkCss/admin.css" rel="stylesheet" />
+    <title>LinkHub</title>
+  </head>
+  <body>
+    
+    <div class="container">
+      <div id="logout">Logout</div>
+      <header class="header">
+        <div class="logo">
+          <img
+            src="../image/logo.png"
+            alt="Link Hub logo"
+          />
+          <h1>Link Hub</h1>
+         
+        </div>
+            <!-- Rounded switch -->
+      <div class = "toggleContainer">
+        <span class = "toggle">Admin</span>&nbsp;
+        <label class="switch">
+          <input type="checkbox" id="toggleCheck">
+          <span class="slider round"></span>
+          </label>&nbsp;
+          <span class = "toggle">Lecturer</span>
+        </div>
+         
+
+        <button class="btn btn-open">Insert a link</button>
+        
+     
+      </header>
+
+     
+      <div id="createLink">
+        <form class="link-form-hidden">
+          <input type="text" name="linkName" placeholder="Link Name..." />
+          <input type="text" name="linkDesc" placeholder="Link Description..." />     
+          <input type="text" name="sessionSem" placeholder="Session-Semester" />
+          <input type="text" name="linkUrl" placeholder="Insert your link here..." />
+          <select name="linkCategory">
+            <option value="">Choose category:</option>
+            <option value="Teaching & Learning">Teaching & learning</option>
+            <option value="Course Coordination">Course Coordination</option>
+            <option value="Research">Research</option>
+            <option value="Course Files">Course Files</option>
+            <option value="Course Assesment Report">CAR</option>
+          </select>
+          <button class="btn btn-large">Insert</button>
+        </form>
+      </div>
+      
+      <div class="overlay"> </div>
+      <div id="successPopup"> <span id='successMessage'></span></div>
+      <div id="assignPopup">
+        <span id =assignSpan></span>
+        <div id ="checkAll"><input type="checkbox" id="allSelector" > <span id="allSpan">Select All<br><br><span></span></div>
+        
+        <!-- select2dropdown --> 
+        <div id ="select2Assign">
+          <select multiple="multiple" class="form-control select2" name="selectLecturer" >
+          </select>
+        </div>
+        
+        <br>
+      <button id="submitButton">submit</button>
+      <div id='result'>
+      </div>
+      </div>
+
+      <div id="updatePopup">
+
+        <form class="link-form link-form-update">
+          <span id ="updateFile"></span>
+          <input type="text" id="inputName" name="UlinkName" placeholder="Link Name..." />
+          <input type="text" id="inputDesc" name="UlinkDesc" placeholder="Link Description..." />
+          <input type="text" id="inputSession" name="UsessionSem" placeholder="Session-Semester" />
+          <input type="text" id="inputUrl" name="UlinkUrl" placeholder="Link URL..." />
+          <select id="inputCategory" name="UlinkCategory">
+            <option value="">Choose category:</option>
+            <option value="Teaching & Learning">Teaching & learning</option>
+            <option value="Course Coordination">Course Coordination</option>
+            <option value="Research">Research</option>
+            <option value="Course Files">Course Files</option>
+            <option value="Course Assesment Report">CAR</option>
+          </select>
+          
+          <button class="btn btn-large btn-update">Update</button>
+         
+        </form>
+      </div>
+      <div id="deletePopup">
+        <span id="deleteMessage">Are you sure to delete the file</span> 
+        &emsp;
+        <div>
+          <button class="confirm">Yes</button>
+          <button class="cancel">Cancel</button>
+        </div>
+      </div>
+      <div id="lectAssignPopup">
+        <span>&lt; List of Lecturers assigned to the link &gt;
+          <br><br></span>
+          <div id = searchContainer2>
+            <input id="searchBar2" type="text" placeholder="&#x1F50D;&#xFE0E; Search leturer...">
+          </div>
+        <div id = "lectList">
+          <ol id ="lecturerList" type="1">
+            
+            <!-- Add more list items as needed -->
+        </ol>
+      </div>
+      
+      </div>
+      <main class="main">
+        <aside>
+          <ul>
+            <li class="category">
+              <button class="btn btn-all-categories" data-category="All">All</button>
+              </button>
+            </li>
+            <li class="category">
+              <button
+                class="btn btn-category"
+                data-category="Teaching & Learning"
+                style="background-color: #3b82f6"
+              >
+                Teaching & Learning
+              </button>
+            </li>
+            <li class="category">
+              <button
+                class="btn btn-category"
+                data-category="Course Coordination"
+                style="background-color: #16a34a"
+              >
+                Course Coordination
+              </button>
+            </li>
+            <li class="category">
+              <button
+                class="btn btn-category"
+                data-category="Research"
+                style="background-color: #ef4444"
+              >
+                Research
+              </button>
+            </li>
+            <li class="category">
+              <button
+                class="btn btn-category"
+                data-category="Course Files"
+                style="background-color: #eab308"
+              >
+                Course Files
+              </button>
+            </li>
+            <li class="category">
+              <button
+                class="btn btn-category"
+                data-category="Course Assesment Report"
+                style="background-color: #db2777"
+              >
+                CAR
+              </button>
+            </li>
+          </ul>
+        
+          <select  id = "sessionDropDown">
+            <option selected disabled hidden value="">Choose Session-Semester</option>
+            <option value="All">All</option>
+          </select>
+          <br><br>
+  
+        </aside>
+
+        <section>
+          <div id = searchContainer>
+            <input id="searchBar" type="text" placeholder="&#x1F50D;&#xFE0E; Search link name or description...">
+          </div>
+  
+          <div class="tableclass">
+            <table class="linktable">
+                <tr>
+                    <th class="sort">Name <span id="asc">&#9650;</span><span id="desc">&#9660;</span></th>
+                    <th class="sort" >Description <span id="asc">&#9650;</span><span id="desc">&#9660;</span></th>
+                    <th class="sort">Session-Semester <span id="asc">&#9650;</span><span id="desc">&#9660;</span></th>
+                    <th>Link </th>
+                    <th class="sort">Category <span id="asc">&#9650;</span><span id="desc">&#9660;</span></th>
+                    <th>Action </th>
+                    <th>Teacher Assigned </th>
+                  </tr>
+            </table>
+ 
+          </div>
+        </section>
+
+      </main>
+    </div>
+    <script src="../linkJs/admin.js"></script>
+  </body>
+</html>

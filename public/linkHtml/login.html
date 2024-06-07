@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login & Register Form for Teacher Drive</title>
+    <link rel="stylesheet" href="../linkCss/login.css" />
+    <script src="../linkJs/jquery.min.js"></script>
+  </head>
+  <body>
+    <div><img src="../image/UTM.png" alt="UTM" width="600px" /></div>
+    <div class="wrapper">
+      <div class="left">
+        <h3>UTM Link Hub</h3>
+        <img src="../image/logo2.png" />
+      </div>
+
+      <div class="right">
+        <div class="tab">
+          <ul>
+            <li class="login_li">Login</li>
+            <li class="register_li">Register</li>
+          </ul>
+        </div>
+        <form id="login_form">
+          <div class="login">
+            <div class="input_box">
+              <input
+                type="text"
+                placeholder="Email"
+                class="input"
+                name="emaillogin"
+                id="form_user_email"
+              />
+              <span class="error_form" id="user_email_error_message"></span>
+            </div>
+            <div class="input_box">
+              <input
+                type="password"
+                placeholder="Password"
+                class="input"
+                name="passlogin"
+                id="form_user_password"
+              />
+              <span class="error_form" id="user_password_error_message"></span>
+            </div>
+            <div class="login-btn">
+              <span id="loginSpan">Login</span>
+            </div>
+          </div>
+        </form>
+        <form id="registration_form">
+          <div class="register">
+            <div class="input_box">
+              <input
+                type="text"
+                placeholder="Email"
+                class="input"
+                name="email"
+                id="form_email"
+              />
+              <span class="error_form" id="email_error_message"></span>
+            </div>
+            <div class="input_box">
+              <input
+                type="password"
+                placeholder="Password"
+                class="input"
+                name="password"
+                id="form_password"
+              />
+              <span class="error_form" id="password_error_message"></span>
+            </div>
+            <div class="input_box">
+              <input
+                type="password"
+                placeholder="Re-Type password"
+                class="input"
+                name="password1"
+                id="form_retype_password"
+              />
+              <span
+                class="error_form"
+                id="retype_password_error_message"
+              ></span>
+            </div>
+            <div class="input_box">
+              <select name="user_type" class="input" id="form_usertype">
+                <option value="" selected hidden>-- User Type --</option>
+                <option value="lecturer">Lecturer</option>
+              </select>
+              <span class="error_form" id="user_error_message"></span>
+            </div>
+            <div class="input_box">
+              <select name="Department" class="input" id="form_department">
+                <option value="" selected hidden>-- Department --</option>
+                <option value="SECRH">SECRH</option>
+                <option value="SECJH">SECJH</option>
+                <option value="SECVH">SECVH</option>
+                <option value="SECBH">SECBH</option>
+                <option value="SECPH">SECPH</option>
+              </select>
+              <span class="error_form" id="department_error_message"></span>
+            </div>
+            <div class="register-btn">
+              <span id="registerSpan">Register</span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="../linkJs/login.js"></script>
+  </body>
+</html>
